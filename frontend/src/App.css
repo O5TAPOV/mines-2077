@@ -1,0 +1,231 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;700;900&display=swap');
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+  font-family: 'Outfit', sans-serif;
+  background-color: #0b0c10;
+  color: white;
+}
+
+/* Фон нашого казино, який лежить біля твоїх логотипів */
+.casino-wrapper {
+  min-height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url('./assets/bg.png');
+  background-size: cover;
+  background-position: center;
+}
+
+/* Скляна панель (Glassmorphism) */
+.glass-dashboard {
+  background: rgba(15, 15, 25, 0.75);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 0 0 40px rgba(0, 255, 255, 0.2), inset 0 0 20px rgba(200, 0, 255, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1.cyber-title {
+  font-size: 3rem;
+  font-weight: 900;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  background: linear-gradient(90deg, #ff00ff, #00ffff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 10px rgba(255, 0, 255, 0.5));
+  line-height: 1.3;
+  /* Збільшуємо висоту рядка */
+  padding-bottom: 15px;
+  /* Даємо місце для світіння знизу */
+  padding-top: 10px;
+  /* і зверху */
+}
+
+.balance-text {
+  font-size: 28px;
+  margin: 20px 0;
+}
+
+.gold {
+  color: #ffd700;
+  text-shadow: 0 0 15px rgba(255, 215, 0, 0.8);
+}
+
+/* Градієнтні кнопки */
+.cyber-btn {
+  background: linear-gradient(45deg, #ff007a, #7a00ff);
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  border-radius: 8px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 20px rgba(255, 0, 122, 0.5);
+}
+
+.cyber-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 30px rgba(255, 0, 122, 0.8);
+}
+
+.cyber-btn.cashout {
+  background: linear-gradient(45deg, #00ff88, #00b8ff);
+  box-shadow: 0 0 20px rgba(0, 255, 136, 0.5);
+  margin-top: 10px;
+}
+
+.cyber-btn.cashout:hover {
+  box-shadow: 0 0 30px rgba(0, 255, 136, 0.8);
+}
+
+.cyber-input {
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid #ff00ff;
+  color: #00ffff;
+  padding: 15px;
+  border-radius: 8px;
+  font-size: 18px;
+  outline: none;
+  box-shadow: 0 0 10px rgba(255, 0, 255, 0.3);
+  font-family: inherit;
+}
+
+/* Ігрова сітка 5х5 */
+.mine-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 60px);
+  gap: 8px;
+  margin: 30px 0;
+}
+
+.mine-cell {
+  width: 60px;
+  height: 60px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(0, 255, 255, 0.3);
+  border-radius: 8px;
+  font-size: 32px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.2s;
+  box-shadow: inset 0 0 10px rgba(0, 255, 255, 0.1);
+}
+
+.mine-cell:hover {
+  background: rgba(0, 255, 255, 0.2);
+  transform: scale(1.05);
+}
+
+/* Анімації для клітинок */
+.cell-bomb {
+  background: rgba(255, 0, 0, 0.7);
+  box-shadow: 0 0 20px red;
+  animation: shake 0.5s;
+}
+
+.cell-safe {
+  background: rgba(0, 255, 136, 0.2);
+  box-shadow: inset 0 0 20px #00ff88;
+}
+
+@keyframes shake {
+  0% {
+    transform: translate(1px, 1px) rotate(0deg);
+  }
+
+  20% {
+    transform: translate(-3px, 0px) rotate(1deg);
+  }
+
+  40% {
+    transform: translate(1px, -1px) rotate(1deg);
+  }
+
+  60% {
+    transform: translate(-3px, 1px) rotate(0deg);
+  }
+
+  80% {
+    transform: translate(-1px, -1px) rotate(1deg);
+  }
+
+  100% {
+    transform: translate(1px, -2px) rotate(-1deg);
+  }
+}
+
+/* --- АДАПТИВНІСТЬ ДЛЯ СМАРТФОНІВ --- */
+@media (max-width: 600px) {
+  h1.cyber-title {
+    font-size: 2rem;
+  }
+
+  .glass-dashboard {
+    width: 90vw;
+    /* Займає 90% ширини мобільного екрана */
+    padding: 20px;
+    box-sizing: border-box;
+  }
+
+  .mine-grid {
+    grid-template-columns: repeat(5, 50px);
+    gap: 5px;
+  }
+
+  .mine-cell {
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
+  }
+
+  .cyber-btn {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .balance-text {
+    font-size: 22px;
+  }
+
+  .cyber-input {
+    width: 100%;
+    box-sizing: border-box;
+    /* Щоб відступи не ламали ширину */
+  }
+}
+
+@media (max-width: 350px) {
+
+  /* Екстремально вузькі екрани (наприклад, iPhone SE 320px) */
+  .mine-grid {
+    grid-template-columns: repeat(5, 45px);
+    gap: 4px;
+  }
+
+  .mine-cell {
+    width: 45px;
+    height: 45px;
+    font-size: 20px;
+  }
+
+  h1.cyber-title {
+    font-size: 1.5rem;
+  }
+}

@@ -1,0 +1,70 @@
+### Реєстрація нового гравця
+POST http://localhost:3000/register
+Content-Type: application/json
+
+{
+    "username": "O5TAPOV"
+}
+
+### Запуск гри та ставка
+POST http://localhost:3000/start-game
+Content-Type: application/json
+
+{
+    "username": "O5TAPOV",
+    "bet": 100
+}
+
+
+### Симуляція кліку по полю 0
+POST http://localhost:3000/click
+Content-Type: application/json
+
+{
+    "username": "O5TAPOV",
+    "cellIndex": 1
+}
+
+### Симуляція кліку по полю 1
+POST http://localhost:3000/click
+Content-Type: application/json
+
+{
+    "username": "O5TAPOV",
+    "cellIndex": 24
+}
+
+### Симуляція кліку по полю 2
+POST http://localhost:3000/click
+Content-Type: application/json
+
+{
+    "username": "O5TAPOV",
+    "cellIndex": 2
+}
+
+### Забрати бабки
+POST http://localhost:3000/cashout
+Content-Type: application/json
+
+{
+    "username": "O5TAPOV"
+}
+
+### Активація промокоду 1
+POST http://localhost:3000/promo
+Content-Type: application/json
+
+{
+    "username": "O5TAPOV",
+    "code": "BOOST"
+}
+
+### Активація промокоду 2
+POST http://localhost:3000/promo
+Content-Type: application/json
+
+{
+    "username": "O5TAPOV",
+    "code": "BOOST2026"
+}

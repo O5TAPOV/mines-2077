@@ -6,7 +6,7 @@ function App() {
   const [playerData, setPlayerData] = useState<any>();
   const [grid, setGrid] = useState<any>({});
   const [inGame, setInGame] = useState(false);
-  const API_URL = "http://localhost:3000";
+  const API_URL = "https://mines-backend-2077.onrender.com";
 
   const handleRegister = async () => {
     if (!username) return alert('Йой, введіть ім\'я!');

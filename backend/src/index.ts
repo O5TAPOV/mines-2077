@@ -7,6 +7,7 @@ app.use(cors());
 app.use(express.json());
 
 const users: any[] = [];
+const PORT = process.env.PORT || 3000;
 
 function createGrid(bombsCount: number) {
     const grid = new Array(25).fill(0);
@@ -148,6 +149,6 @@ app.post('/promo', (req: Request, res: Response) => {
     });
 });
 
-app.listen(3000, () => {
-    console.log('🚀 Сервер Сапера успішно запущено на http://localhost:3000');
-})
+app.listen(PORT, () => {
+    console.log(`Бекенд Сапера крутиться на порту ${PORT}`);
+});
